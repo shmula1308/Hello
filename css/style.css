@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@300;700&family=Gugi&display=swap");
+
+/* RESETS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  font-family: inherit;
+  padding: 1em;
+  border: none;
+  position: relative;
+}
+
+.btn {
+  position: absolute;
+  bottom: -10%;
+  width: 350px;
+  padding: 22px 0 1em;
+  z-index: 1;
+  border-radius: 0 0 20px 20px;
+  border: none;
+  color: #fff;
+  background-color: rgba(246, 246, 246, 0.4);
+  font-family: inherit;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* GENERAL STYLING */
+body {
+  background: linear-gradient(
+    150deg,
+    #c5838c,
+    #ba7a8f,
+    #ad7392,
+    #9d6d95,
+    #896896,
+    #736497,
+    #5a6095,
+    #3b5d90
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: "Gugi", cursive;
+}
+.app-title {
+  color: aliceblue;
+  font-family: "Gaegu", cursive;
+  font-size: 3.4rem;
+  font-weight: 700;
+  margin-bottom: 2em;
+}
+
+/* LAYOUT */
+
+.app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  position: relative;
+  width: 500px;
+  background: linear-gradient(
+    150deg,
+    #d8c1cb,
+    #d4becc,
+    #cebbcd,
+    #c8b9cf,
+    #c0b7d0,
+    #b7b5d1,
+    #aeb4d1,
+    #a3b3d0
+  );
+  padding: 3em;
+  border-radius: 30px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  margin-top: 5em;
+}
+
+.login__icon {
+  position: absolute;
+  font-size: 4rem;
+  color: #fff;
+  background-color: #01254e;
+  padding: 0.2em;
+  border-radius: 50%;
+  top: -15%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.btn--primary {
+}
