@@ -16,19 +16,44 @@
   </head>
   <body>
     <div class="app">
-      <h1 class="app-title">Hello</h1>
+      <h1 class="app-title">Hello App</h1>
+      <div class="greeting-container">
+        <!-- <h3 class="greeting">
+          Tungjatjeta <span class="username">Shpend</span> you have successfully
+          logged in!
+        </h3> -->
+        <!-- Have a great day Shpend! -->
+      </div>
       <div class="login">
         <form>
           <i class="far fa-user-circle login__icon"></i>
-          <i class="fas fa-user"></i>
-          <input type="text" class="login__input" placeholder="Email ID" />
-          <i class="fas fa-lock"></i>
-          <input type="password" class="login__input" placeholder="Password" />
+          <div class="input-wrapper">
+            <i class="fas fa-user input-icon"></i>
+            <input
+              type="text"
+              class="login__input"
+              id="usernameInput"
+              placeholder="Username"
+            />
+          </div>
+          <div class="input-wrapper">
+            <i class="fas fa-lock input-icon"></i>
+            <input
+              type="password"
+              class="login__input"
+              id="passwordInput"
+              placeholder="Password"
+            />
+          </div>
         </form>
 
-        <!-- <button type="button" class="btn btn--secondary">LOGOUT</button> -->
+        <button type="button" class="btn btn--primary" id="loginBtn">
+          LOGIN
+        </button>
+        <button type="button" class="btn btn--secondary" id="logoutBtn">
+          LOGOUT
+        </button>
       </div>
-      <button type="button" class="btn btn--primary">LOGIN</button>
     </div>
   </body>
 </html>

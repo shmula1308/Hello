@@ -17,10 +17,11 @@ input {
 
 .btn {
   position: absolute;
-  bottom: -10%;
+  left: 50%;
+  bottom: -20.8%;
+  transform: translate(-50%);
   width: 350px;
   padding: 22px 0 1em;
-  z-index: 1;
   border-radius: 0 0 20px 20px;
   border: none;
   color: #fff;
@@ -28,9 +29,19 @@ input {
   font-family: inherit;
   letter-spacing: 1px;
   cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
+.btn:hover {
+  background-color: #3b5d90;
+}
+
+.btn--secondary {
+  display: none;
+}
 /* GENERAL STYLING */
+
 body {
   background: linear-gradient(
     150deg,
@@ -48,12 +59,35 @@ body {
   height: 100vh;
   font-family: "Gugi", cursive;
 }
+
 .app-title {
   color: aliceblue;
   font-family: "Gaegu", cursive;
   font-size: 3.4rem;
   font-weight: 700;
   margin-bottom: 2em;
+}
+
+.greeting-container {
+  position: absolute;
+  top: 150px;
+  text-align: center;
+}
+
+.greeting {
+  color: lightsteelblue;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.username {
+  color: lightsalmon;
+}
+
+.error-message {
+  color: firebrick;
+  font-size: 1.7rem;
+  font-weight: 700;
 }
 
 /* LAYOUT */
@@ -81,10 +115,10 @@ body {
     #a3b3d0
   );
   padding: 3em;
+  margin-top: 5em;
   border-radius: 30px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  margin-top: 5em;
 }
 
 .login__icon {
@@ -94,10 +128,23 @@ body {
   background-color: #01254e;
   padding: 0.2em;
   border-radius: 50%;
-  top: -15%;
+  top: -20%;
   left: 50%;
   transform: translate(-50%);
 }
 
-.btn--primary {
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper:nth-child(2) {
+  margin: 2em 0;
+}
+
+.input-icon {
+  background-color: #00264f;
+  color: #c3bbcc;
+  padding: 13.6px;
+  align-self: center;
 }
