@@ -104,8 +104,10 @@ function displayGreeting(greeting) {
         const greeting = document.querySelector('.greeting');
         greeting.remove();
       },2500)
-    
-    
+      
+    document.body.classList.add('after');
+
+
     if(loginStatus.loggedIn === true) {
         loginBtn.style.display = "none"
         logoutBtn.style.display = "block"
@@ -134,6 +136,8 @@ function displayFarewell(user) {
         const farewell = document.querySelector('.greeting');
         farewell.remove();
       },2000)
+
+      document.body.classList.remove('after');
 }
 
 
