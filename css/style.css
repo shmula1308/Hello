@@ -18,7 +18,7 @@ input {
 .btn {
   position: absolute;
   left: 50%;
-  bottom: -20.8%;
+  bottom: -14.7%;
   transform: translate(-50%);
   width: 350px;
   padding: 22px 0 1em;
@@ -60,7 +60,6 @@ body {
   background-size: cover;
   height: 100vh;
   font-family: "Gugi", cursive;
-  transition: all 1000ms linear;
 }
 
 .after {
@@ -146,7 +145,7 @@ body {
   background-color: #01254e;
   padding: 0.2em;
   border-radius: 50%;
-  top: -20%;
+  top: -12%;
   left: 50%;
   transform: translate(-50%);
 }
@@ -156,7 +155,7 @@ body {
   align-items: center;
 }
 
-.input-wrapper:nth-child(2) {
+.input-wrapper {
   margin: 2em 0;
 }
 

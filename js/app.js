@@ -4,12 +4,22 @@ const userName = document.getElementById('usernameInput')
 const password = document.getElementById('passwordInput')
 const greetingContainer = document.querySelector('.greeting-container')
 const form = document.querySelector('form');
+const countryInput = document.getElementById('languageInput');
+let langCode;
 
 let userNm;
 
 const loginStatus = {
     loggedIn: false
 }
+
+
+countryInput.addEventListener('change', (ev) => {
+    let value = ev.target.value;
+    if(!value) return;
+    langCode = document.querySelector('option[value="' + value + '"]').dataset.code
+   
+})
 
 loginBtn.addEventListener('click', () => {
     validateInput() 
@@ -76,16 +86,25 @@ function fetchGreeting() {
 
 
 function retrieveGreeting(ipAddress) {
-    let url = `https://fourtonfish.com/hellosalut/?ip=${ipAddress}`;
+    if(langCode) {
+        var url = `https://fourtonfish.com/hellosalut/?lang=${langCode}&ip=${ipAddress}`;
+    } 
+    if(!langCode) {
+        var url = `https://fourtonfish.com/hellosalut/?ip=${ipAddress}`;
+    } 
+
+   
     fetch(url)
     .then(request => request.json())
     .then(jsonData => {
         let decodedGreeting = decodeGreeting(jsonData.hello);
+        console.log(jsonData)
         displayGreeting(decodedGreeting)
     })
     .catch(err => {
         console.log(err.message)
     })
+    langCode = null;
 }
 
 function decodeGreeting(codedGreeting) {
