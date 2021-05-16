@@ -13,12 +13,18 @@ input {
   padding: 1em;
   border: none;
   position: relative;
+  background-color: #375273;
+  color: #fff;
+}
+
+input::placeholder {
+  color: #fff;
 }
 
 .btn {
   position: absolute;
   left: 50%;
-  bottom: -14.7%;
+  bottom: -14.6%;
   transform: translate(-50%);
   width: 350px;
   padding: 22px 0 1em;
@@ -58,7 +64,7 @@ body {
   );
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Gugi", cursive;
 }
 
@@ -132,7 +138,7 @@ body {
     #a3b3d0
   );
   padding: 3em;
-  margin-top: 5em;
+  margin-top: 9em;
   border-radius: 30px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -162,6 +168,30 @@ body {
 .input-icon {
   background-color: #00264f;
   color: #c3bbcc;
-  padding: 13.6px;
+  padding: 13.3px;
   align-self: center;
+}
+
+/* TABLE */
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+  margin: 6em auto;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:nth-child(odd) {
+  background-color: #375273;
+  color: #fff;
 }

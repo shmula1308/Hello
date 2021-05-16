@@ -5,6 +5,7 @@ const password = document.getElementById('passwordInput')
 const greetingContainer = document.querySelector('.greeting-container')
 const form = document.querySelector('form');
 const countryInput = document.getElementById('languageInput');
+const geolocInfo = document.querySelector('.geoloaction-info');
 let langCode;
 
 let userNm;
@@ -36,7 +37,7 @@ function validateInput() {
     userName.style.outline = 'none';
     password.style.outline = 'none';
     if(userName.value && password.value) {
-        fetchGreeting();
+        fetchIPAddress();
         changeButton();
         userNm = userName.value;  
         form.reset();
@@ -73,12 +74,13 @@ function changeButton() {
 }
 
 
-function fetchGreeting() {
+function fetchIPAddress() {
     const uri = 'http://ip-api.com/json/';
     fetch(uri).then((response) => {
         return response.json();
     }).then(jsonData => {
-            retrieveGreeting(jsonData.query)   
+            retrieveGreeting(jsonData.query)
+            displayGeolocationInfo(jsonData)   
     }).catch((err) => {
         console.log("ERROR",err.message)
     })
@@ -97,8 +99,8 @@ function retrieveGreeting(ipAddress) {
     fetch(url)
     .then(request => request.json())
     .then(jsonData => {
+        console.log('fourtonfish',jsonData)
         let decodedGreeting = decodeGreeting(jsonData.hello);
-        console.log(jsonData)
         displayGreeting(decodedGreeting)
     })
     .catch(err => {
@@ -116,7 +118,7 @@ function decodeGreeting(codedGreeting) {
 function displayGreeting(greeting) {
     const h3 = document.createElement('h3');
     h3.className = 'greeting'
-    h3.innerHTML = `${greeting} <span class="username">${userNm}</span> you have successfully
+    h3.innerHTML = `${greeting} <span class="username">${userNm}</span>,</br> you have successfully
     logged in!`
     greetingContainer.appendChild(h3);
     setTimeout(() => {
@@ -131,6 +133,60 @@ function displayGreeting(greeting) {
         loginBtn.style.display = "none"
         logoutBtn.style.display = "block"
     }
+}
+
+function displayGeolocationInfo(data) {
+    geolocInfo.innerHTML = "";
+    geolocInfo.innerHTML = `<table>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td>${data.city}</td>
+    </tr>
+    <tr>
+      <td>Country</td>
+      <td>${data.country}</td>
+    </tr>
+    <tr>
+      <td>Country Code</td>
+      <td>${data.countryCode}</td>
+    </tr>
+    <tr>
+      <td>ISP</td>
+      <td>${data.isp}</td>
+    </tr>
+    <tr>
+      <td>Latitude</td>
+      <td>${data.lat}</td>
+    </tr>
+    <tr>
+      <td>Longitude</td>
+      <td>${data.lon}</td>
+    </tr>
+    <tr>
+      <td>IP ADDRESS</td>
+      <td>${data.query}</td>
+    </tr>
+    <tr>
+      <td>Region</td>
+      <td>${data.region}</td>
+    </tr>
+    <tr>
+      <td>Region Name</td>
+      <td>${data.regionName}</td>
+    </tr>
+    <tr>
+      <td>Timezone</td>
+      <td>${data.timezone}</td>
+    </tr>
+    <tr>
+      <td>Zip</td>
+      <td>${data.zip}</td>
+    </tr>
+  </table>`
 }
 
 function displayInvalidInput() {
@@ -155,8 +211,9 @@ function displayFarewell(user) {
         const farewell = document.querySelector('.greeting');
         farewell.remove();
       },2000)
-
+      geolocInfo.innerHTML = "";
       document.body.classList.remove('after');
+      
 }
 
 
